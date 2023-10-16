@@ -1192,6 +1192,7 @@ const (
 	ClusterProfileAWSLocalZones         ClusterProfile = "aws-local-zones"
 	ClusterProfileAWSTerraformQE        ClusterProfile = "aws-terraform-qe"
 	ClusterProfileAWSRHTAPQE            ClusterProfile = "aws-rhtap-qe"
+	ClusterProfileAWSRHTAPPerformance   ClusterProfile = "aws-rhtap-performance"
 	ClusterProfileAlibabaCloud          ClusterProfile = "alibabacloud"
 	ClusterProfileAlibabaCloudQE        ClusterProfile = "alibabacloud-qe"
 	ClusterProfileAlibabaCloudCNQE      ClusterProfile = "alibabacloud-cn-qe"
@@ -1307,6 +1308,7 @@ func ClusterProfiles() []ClusterProfile {
 		ClusterProfileAWSLocalZones,
 		ClusterProfileAWSTerraformQE,
 		ClusterProfileAWSRHTAPQE,
+		ClusterProfileAWSRHTAPPerformance,
 		ClusterProfileAlibabaCloud,
 		ClusterProfileAlibabaCloudQE,
 		ClusterProfileAlibabaCloudCNQE,
@@ -1416,7 +1418,8 @@ func (p ClusterProfile) ClusterType() string {
 		ClusterProfileAWSPerfScaleQE,
 		ClusterProfileAWSPerfScaleLRCQE,
 		ClusterProfileAWSTerraformQE,
-		ClusterProfileAWSRHTAPQE:
+		ClusterProfileAWSRHTAPQE,
+		ClusterProfileAWSRHTAPPerformance:
 		return string(CloudAWS)
 	case
 		ClusterProfileAlibabaCloud,
@@ -1612,6 +1615,8 @@ func (p ClusterProfile) LeaseType() string {
 		return "aws-terraform-qe-quota-slice"
 	case ClusterProfileAWSRHTAPQE:
 		return "aws-rhtap-qe-quota-slice"
+	case ClusterProfileAWSRHTAPPerformance:
+		return "aws-rhtap-performance-quota-slice"
 	case ClusterProfileAlibabaCloud:
 		return "alibabacloud-quota-slice"
 	case ClusterProfileAlibabaCloudQE:
